@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading;
 namespace cpu_info
 {
     class printcpudata
@@ -15,6 +16,7 @@ namespace cpu_info
             {
                 Console.WriteLine($"the usage for thread {i} is {thread_data[i,4]} and the speed is {thread_data[i, 5]}");
             }
+            Console.WriteLine("\n\n");
         }
     }
     class getcpudata
@@ -47,19 +49,23 @@ namespace cpu_info
                 split_data[count] = i.Split(' ');
                 count++;
             }
-            for(int i = 1; i < 12;i++)
+            for(int i = 1; i <= thread_array.GetLength(0); i++)
             {
+                //takes all times and adds them together, this is user time, low user time, system time and idle time
                 thread_array[i - 1,1] = Convert.ToSingle(split_data[i][1]) +
                                         Convert.ToSingle(split_data[i][2]) +
                                         Convert.ToSingle(split_data[i][3]) +
                                         Convert.ToSingle(split_data[i][4]);
                 thread_array[i - 1, 3] = Convert.ToSingle(split_data[i][4]);
-                thread_array[i - 1, 4] = (100 * (thread_array[i - 1, 0] - thread_array[i - 1, 1] - thread_array[i - 1, 2] + thread_array[i - 1, 3])) / (thread_array[i - 1, 0] - thread_array[i - 1, 1]);
-                Console.WriteLine((100 * (thread_array[i - 1, 0] - thread_array[i - 1, 1] - thread_array[i - 1, 2] + thread_array[i - 1, 3])) / (thread_array[i - 1, 0] - thread_array[i - 1, 1]));
-                thread_array[i - 1, 0] = thread_array[i - 1, 1];
-                thread_array[i - 1, 2] = thread_array[i - 1, 3];
-            }
+                if (thread_array[i - 1, 1] != thread_array[i - 1, 0])
+                {
+                    //this takes the times, checks if they are different and then works out the delta usage for the gap, this is either the delay the user inputs or time between updates on that file
+                    thread_array[i - 1, 4] = 100 * (1 - ((thread_array[i - 1, 3] - thread_array[i - 1, 2]) / (thread_array[i - 1, 1] - thread_array[i - 1, 0])));
+                    thread_array[i - 1, 0] = thread_array[i - 1, 1];
+                    thread_array[i - 1, 2] = thread_array[i - 1, 3];
+                }
 
+            }
         }
         public float[,] returndata()
         {
@@ -75,11 +81,15 @@ namespace cpu_info
             getcpudata data = new getcpudata(12);
             printcpudata yes = new printcpudata();
             data.gatherdata();
+            Thread.Sleep(1000);
             data.gatherdata();
-            data.gatherdata();
-            yes.getdata(data.returndata());
-            yes.printdata();
-
+            while (true)
+            {
+                Thread.Sleep(1000);
+                data.gatherdata();
+                yes.getdata(data.returndata());
+                yes.printdata();
+            }
         }
     }
 }
