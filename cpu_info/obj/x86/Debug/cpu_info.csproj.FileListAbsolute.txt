@@ -1,0 +1,5 @@
+/home/sam/Projects/cpu_info/cpu_info/bin/Debug/cpu_info.exe
+/home/sam/Projects/cpu_info/cpu_info/bin/Debug/cpu_info.pdb
+/home/sam/Projects/cpu_info/cpu_info/obj/x86/Debug/cpu_info.csprojAssemblyReference.cache
+/home/sam/Projects/cpu_info/cpu_info/obj/x86/Debug/cpu_info.exe
+/home/sam/Projects/cpu_info/cpu_info/obj/x86/Debug/cpu_info.pdb
