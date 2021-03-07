@@ -3,3 +3,9 @@
 /home/sam/Projects/cpu_info/cpu_info/obj/x86/Debug/cpu_info.csprojAssemblyReference.cache
 /home/sam/Projects/cpu_info/cpu_info/obj/x86/Debug/cpu_info.exe
 /home/sam/Projects/cpu_info/cpu_info/obj/x86/Debug/cpu_info.pdb
+/home/sam/Projects/cpu_info/cpu_info/obj/x86/Debug/cpu_info.csproj.CoreCompileInputs.cache
+/home/sam/Projects/cpu_info/cpu_info/bin/Debug/Renci.SshNet.dll
+/home/sam/Projects/cpu_info/cpu_info/bin/Debug/Renci.SshNet.xml
+/home/sam/Projects/cpu_info/cpu_info/obj/x86/Debug/cpu_info.csproj.CopyComplete
+/home/sam/Projects/cpu_info/cpu_info/bin/Debug/Newtonsoft.Json.dll
+/home/sam/Projects/cpu_info/cpu_info/bin/Debug/Newtonsoft.Json.xml
