@@ -1,1 +1,6 @@
 cpu_info/hosts.json
+cpu_info/bin/Debug/cpu_info.exe
+cpu_info/bin/Debug/cpu_info.pdb
+cpu_info/bin/Debug/hosts.json
+cpu_info/bin/Debug/Renci.SshNet.dll
+cpu_info/bin/Debug/Renci.SshNet.xml

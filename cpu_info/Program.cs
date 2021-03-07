@@ -103,7 +103,7 @@ namespace cpu_info
     //1. get mem working - meminfo
     //2. get disk working - diskinfo
     //3. get a GUI working
-    //4. maybe get network stuff working
+    //4. get network stuff working with remote getting core count
 
     class MainClass
     {
